@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 110px auto;
+            width: 500px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        input,
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="main">
+        <div class="card">
+
+            <input type="search" id="input" placeholder="Enter  any Text">
+            <button type="button" onclick="speech()">Submit</button>
+
+
+        </div>
+    </div>
+
+    <script>
+
+
+        function speech() {
+            let input = document.getElementById('input').value;
+
+            if ('speechSynthesis' in window) {
+                let utterence = new SpeechSynthesisUtterance(input);
+                window.speechSynthesis.speak(utterence)
+            }
+
+            else {
+                alert('not support')
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
